@@ -1,3 +1,5 @@
+const habitRoutes = require("./routes/habitRoutes");
+const authRoutes = require("./routes/authRoutes");
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
@@ -7,6 +9,9 @@ dotenv.config();
 
 const app = express();
 
+app.use(express.json());
+app.use("/api/habits", habitRoutes);
+app.use("/api/auth", authRoutes);
 app.use(cors());
 app.use(express.json());
 
